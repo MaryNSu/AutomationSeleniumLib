@@ -2,7 +2,6 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,7 +16,7 @@ public class TestWaiters {
     WebDriver driver;
 
     @BeforeMethod
-    public void driver(){
+    public void driver() {
         // open browser
         driver = new EdgeDriver();
 
@@ -28,7 +27,7 @@ public class TestWaiters {
     @AfterMethod
     public void tearDown() throws InterruptedException {
         Thread.sleep(3000);
-        if(driver!=null){
+        if (driver != null) {
             // close all tabs and windows
             driver.quit();
             // close current tab
@@ -45,7 +44,7 @@ public class TestWaiters {
     }
 
     @Test
-    public void implicitlyWait(){
+    public void implicitlyWait() {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
@@ -54,20 +53,20 @@ public class TestWaiters {
     }
 
     @Test
-    public void waitElementIsPresent(){
+    public void waitElementIsPresent() {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
         // wait element appear on the page
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         // wait until element will be present on the page with timeout of 5 seconds
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//form/input[1]"))).click();
 
     }
 
     @Test
-    public void elementIsClickable(){
+    public void elementIsClickable() {
         driver.get("https://the-internet.herokuapp.com/checkboxes");
 
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         // wait until element will be clickable with timeout of 5 seconds
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//form/input[1]"))).click();
     }

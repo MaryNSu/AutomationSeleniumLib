@@ -17,7 +17,7 @@ public class TestActions {
     WebDriver driver;
 
     @BeforeMethod
-    public void driver(){
+    public void driver() {
         // open browser
         driver = new EdgeDriver();
 
@@ -28,7 +28,7 @@ public class TestActions {
     @AfterMethod
     public void tearDown() throws InterruptedException {
         Thread.sleep(3000);
-        if(driver!=null){
+        if (driver != null) {
             // close all tabs and windows
             driver.quit();
             // close current tab
@@ -56,7 +56,7 @@ public class TestActions {
 
         // init action object
         WebElement btn = driver.findElement(By.xpath("//button[@class='btn btn-success']"));
-        Actions action =  new Actions(driver);
+        Actions action = new Actions(driver);
         // perform doubleClick
         action.doubleClick(btn).pause(Duration.ofSeconds(5)).perform();
     }

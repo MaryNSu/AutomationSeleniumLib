@@ -17,7 +17,7 @@ public class TestSeleniumDriver {
     WebDriver driver;
 
     @BeforeMethod
-    public void driver(){
+    public void driver() {
         // open browser
         driver = new EdgeDriver();
 
@@ -28,7 +28,7 @@ public class TestSeleniumDriver {
     @AfterMethod
     public void tearDown() throws InterruptedException {
         Thread.sleep(3000);
-        if(driver!=null){
+        if (driver != null) {
             // close all tabs and windows
             driver.quit();
             // close current tab
@@ -54,8 +54,8 @@ public class TestSeleniumDriver {
     }
 
     @Test
-  public void testNewWindows() throws InterruptedException {
-    driver.get("https://www.google.com/");
+    public void testNewWindows() throws InterruptedException {
+        driver.get("https://www.google.com/");
 
         // open new tab
         driver.switchTo().newWindow(WindowType.TAB);
@@ -197,6 +197,7 @@ public class TestSeleniumDriver {
         searchBtn.click();
 
     }
+
     @Test
     public void handleForms() throws InterruptedException {
         driver.get("https://www.google.com/");
@@ -216,7 +217,7 @@ public class TestSeleniumDriver {
     public void elementProps2() throws InterruptedException {
 
         driver.get("https://the-internet.herokuapp.com/checkboxes");
-    Thread.sleep(3000);
+        Thread.sleep(3000);
         WebElement checkbox = driver.findElement(By.xpath("//form/input[1]"));
 
         // check if element is visible (for all elements)
